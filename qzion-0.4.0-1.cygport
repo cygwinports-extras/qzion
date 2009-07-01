@@ -6,4 +6,7 @@ HOMEPAGE="http://code.openbossa.org/projects/qedje"
 SRC_URI="http://code.openbossa.org/projects/${PN}/repos/mainline/archive/${GIT_REV}.tar.gz"
 SRC_DIR="${PN}-mainline"
 
+PATCH_URI="0.4.0-cmake.patch
+           0.4.0-sip48.patch"
+
 CYGCMAKE_ARGS="-DQGV_BACKEND=TRUE"
