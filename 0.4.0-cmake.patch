@@ -1,0 +1,22 @@
+--- origsrc/qzion-mainline/cmake/modules/SIPMacros.cmake	2009-02-18 15:38:44.000000000 -0600
++++ src/qzion-mainline/cmake/modules/SIPMacros.cmake	2009-06-23 13:22:45.843404100 -0500
+@@ -107,7 +107,7 @@ MACRO(ADD_SIP_PYTHON_MODULE MODULE_NAME 
+         DEPENDS ${_abs_module_sip} ${SIP_EXTRA_FILES_DEPEND}
+     )
+ 
+-    ADD_LIBRARY(${_logical_name} SHARED ${_sip_output_files} )
++    ADD_LIBRARY(${_logical_name} MODULE ${_sip_output_files} )
+     TARGET_LINK_LIBRARIES(${_logical_name} ${PYTHON_LIBRARY})
+     TARGET_LINK_LIBRARIES(${_logical_name} ${EXTRA_LINK_LIBRARIES})
+     SET_TARGET_PROPERTIES(${_logical_name} PROPERTIES PREFIX "" OUTPUT_NAME ${_child_module_name})
+--- origsrc/qzion-mainline/src/common.cmake	2009-02-18 15:38:44.000000000 -0600
++++ src/qzion-mainline/src/common.cmake	2009-06-23 12:54:56.854867600 -0500
+@@ -32,5 +32,7 @@ function(create_qzion create_qzion_EXTRA
+         SOVERSION ${QZION_LIB_MAJOR_VERSION}
+         )
+ 
+-    install(TARGETS qzion LIBRARY DESTINATION ${LIB_INSTALL_DIR}/)
++    install(TARGETS qzion LIBRARY DESTINATION ${LIB_INSTALL_DIR}/
++                          RUNTIME DESTINATION bin
++                          ARCHIVE DESTINATION ${LIB_INSTALL_DIR}/)
+ endfunction(create_qzion)

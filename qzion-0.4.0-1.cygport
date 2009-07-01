@@ -1,0 +1,9 @@
+GIT_REV="d32223eae1bba7f1b191c334668f3f7dd662f582"
+inherit qt4-cmake
+
+
+HOMEPAGE="http://code.openbossa.org/projects/qedje"
+SRC_URI="http://code.openbossa.org/projects/${PN}/repos/mainline/archive/${GIT_REV}.tar.gz"
+SRC_DIR="${PN}-mainline"
+
+CYGCMAKE_ARGS="-DQGV_BACKEND=TRUE"
