@@ -9,6 +9,15 @@
      TARGET_LINK_LIBRARIES(${_logical_name} ${PYTHON_LIBRARY})
      TARGET_LINK_LIBRARIES(${_logical_name} ${EXTRA_LINK_LIBRARIES})
      SET_TARGET_PROPERTIES(${_logical_name} PROPERTIES PREFIX "" OUTPUT_NAME ${_child_module_name})
+--- origsrc/qzion-mainline/src/CMakeLists.txt	2009-02-18 15:38:44.000000000 -0600
++++ src/qzion-mainline/src/CMakeLists.txt	2010-02-02 15:14:29.630291500 -0600
+@@ -30,5 +30,5 @@ install(FILES ${qzion_HEADERS} DESTINATI
+ 
+ if (NOT WIN32)
+     configure_file(common/qzion.pc.cmake qzion.pc @ONLY)
+-    install(FILES ${CMAKE_BINARY_DIR}/qzion.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig/)
++    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qzion.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig/)
+ endif (NOT WIN32)
 --- origsrc/qzion-mainline/src/common.cmake	2009-02-18 15:38:44.000000000 -0600
 +++ src/qzion-mainline/src/common.cmake	2009-06-23 12:54:56.854867600 -0500
 @@ -32,5 +32,7 @@ function(create_qzion create_qzion_EXTRA

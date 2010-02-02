@@ -1,0 +1,9 @@
+category: KDE Python
+requires: libgcc1 libQtCore4 libQtGui4 libqzion0 libstdc++6 python python-pyqt4 python-sip
+external-source: qzion
+sdesc: "Qt4 canvas abstraction library (Python bindings)"
+ldesc: "QZion is an canvas abstraction used by and made for QEdje. As it 
+is an abstraction, different implementations can exist, making it 
+possible to optimize QEdje for different platforms/devices. Currently an 
+implementation, based on KGameCanvas (from libkdegames) exists, but work 
+is being done on providing an implementation using QT's QGraphicsView."

@@ -1,12 +1,19 @@
 GIT_REV="d32223eae1bba7f1b191c334668f3f7dd662f582"
-inherit qt4-cmake
+inherit python qt4-cmake
 
-
+DESCRIPTION="Qt4 canvas abstraction"
 HOMEPAGE="http://code.openbossa.org/projects/qedje"
 SRC_URI="http://code.openbossa.org/projects/${PN}/repos/mainline/archive/${GIT_REV}.tar.gz"
 SRC_DIR="${PN}-mainline"
 
-PATCH_URI="0.4.0-cmake.patch
-           0.4.0-sip48.patch"
+PATCH_URI="
+	0.4.0-cmake.patch
+	0.4.0-sip48.patch
+"
+
+PKG_NAMES="${PN} libqzion0 libqzion-devel python-qzion"
+libqzion0_CONTENTS="usr/bin/cygqzion-0.dll usr/share/doc/"
+libqzion_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+python_qzion_CONTENTS="${PYTHON_SITELIB#/} usr/share/sip/"
 
 CYGCMAKE_ARGS="-DQGV_BACKEND=TRUE"
